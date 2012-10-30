@@ -25,3 +25,6 @@ function! GoMiddleOfLine()
 
 endfunction
 
+command! ToggleLineLengthHighlight call ToggleLineLengthHighlight()
+command! GoMiddleOfLine call GoMiddleOfLine()
+
