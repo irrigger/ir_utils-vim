@@ -25,6 +25,18 @@ function! GoMiddleOfLine()
 
 endfunction
 
+function! CleanConfigUpdate()
+    silent! g/^\s*$/d
+    silent! %s/\*\*//g
+    silent! %s/-\+//g
+    silent! %s/\${CODE_ROOT}\S[a-zA-Z/_]*\/\([a-zA-Z0-9._]\+\)\.egg/\1/g
+    silent! %s/\s\+$//g
+    silent! g/^\s*[A-Z_]\+\s/normal J
+    silent! g/^\s*[A-Z_]\+\s/normal O
+    silent! %s/\s\{5\}//g
+    silent! %y+
+endfunction
+
 command! ToggleLineLengthHighlight call ToggleLineLengthHighlight()
 command! GoMiddleOfLine call GoMiddleOfLine()
-
+command! CleanConfigUpdate call CleanConfigUpdate()
